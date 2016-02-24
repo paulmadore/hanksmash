@@ -14,10 +14,12 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import pygame, sys,os, random, string, glob
+import pygame, sys, os, random, glob
+from pygame.locals import * 
+import oldstring
 import argparse
 import fnmatch
-from pygame.locals import * 
+
 
 # draw filled circle at mouse position
 def draw_dot():
@@ -45,9 +47,9 @@ def get_color():
 def load_image(fullname, colorkey = None):
     try:
         image = pygame.image.load(fullname)
-    except pygame.error, message:
-        print "Cannot load image:", fullname
-        raise SystemExit, message
+    except pygame.error:
+        print("Cannot load image:", fullname)
+        raise SystemExit(message)
     image = image.convert()
     if colorkey is not None:
         if colorkey is -1:
@@ -64,9 +66,9 @@ def load_sound(name):
         return NoneSound()
     try:
         sound = pygame.mixer.Sound(name)
-    except pygame.error, message:
-        print "Cannot load sound:", name
-        raise SystemExit, message
+    except pygame.error:
+        print("Cannot load sound:", name)
+        raise SystemExit(message)
     return sound
 
 
@@ -76,7 +78,7 @@ def load_sounds(lst):
     global args
     for name in lst:
         if True in [fnmatch.fnmatch(name, p) for p in args.sound_blacklist]:
-            print "Skipping blacklisted sound:", name
+            print("Skipping blacklisted sound:", name)
         else:
             result.append(load_sound(name))
     return result
@@ -151,7 +153,7 @@ def print_image():
 
 # Is the key that was pressed alphanumeric
 def is_alpha(key):
-    return key < 255 and (chr(key) in string.letters or chr(key) in string.digits)
+    return key < 255 and (chr(key) in oldstring.letters or chr(key) in oldstring.digits)
 
 # Prints a letter at a random location
 def print_letter(key):
@@ -177,8 +179,8 @@ parser.add_argument('-u', '--uppercase', action='store_true', help='Whether to s
 parser.add_argument('--sound_blacklist', action='append', default=[], help='List of sound filename patterns to never play.')
 args = parser.parse_args()
 
-if not pygame.font: print 'Warning, fonts disabled'
-if not pygame.mixer: print 'Warning, sound disabled'
+if not pygame.font: print('Warning, fonts disabled')
+if not pygame.mixer: print('Warning, sound disabled')
  
 pygame.init()
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (C) 2014 P. H. Madore phmadore.com
+# Copyright (C) 2014, 2016 P. H. Madore phm.link
 # **Original code** copyright (C) 2007-2008 Don Brown 2010 Spike Burch <spikeb@gmail.com>
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -158,7 +158,7 @@ def is_alpha(key):
 # Prints a letter at a random location
 def print_letter(key):
     global args
-    font = pygame.font.Font(None, 256)
+    font = pygame.font.Font('data/doodlegum.ttf', 100)
     if args.uppercase:
         char = chr(key).upper()
     else:
@@ -195,7 +195,7 @@ displayinfo = pygame.display.Info()
 swidth = displayinfo.current_w
 sheight = displayinfo.current_h
 
-pygame.display.set_caption('Bam Bam') 
+pygame.display.set_caption('Hanksmash') 
 screen = pygame.display.get_surface() 
 
 background = pygame.Surface(screen.get_size())

@@ -50,12 +50,15 @@ in HankSmash.
 	So, in many cases you may just want to type out
 
 **mute**
+
 	to make it go silent and then 
 
 **unmute**
+
 	to bring the sound back.
 
 5. When your child or you are done with the program, type out the word
+
 **quit**
 																		
 # Notes

@@ -16,7 +16,7 @@ developed bambam:
 HankSmash requires PyGame to run. If you do not presently have PyGame 
 and you are on a Debian-based system, run:
 
-> sudo apt-get install python python-pygame
+sudo apt-get install python python-pygame
 
 Now:
 

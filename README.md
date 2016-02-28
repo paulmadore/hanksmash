@@ -31,7 +31,7 @@ Now:
 			letters]
 
 Important: to quit, type out the word
-												**quit**
+**quit**
                                                 
 4. Optionally, you can choose to mute some or all of the sound effects 
 in HankSmash.
@@ -49,14 +49,14 @@ in HankSmash.
 	the program in order to use ANY noises.
 	So, in many cases you may just want to type out
 
-													**mute**
+**mute**
 	to make it go silent and then 
 
-													**unmute**
+**unmute**
 	to bring the sound back.
 
 5. When your child or you are done with the program, type out the word
-													**quit**
+**quit**
 																		
 # Notes
 

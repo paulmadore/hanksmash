@@ -108,8 +108,8 @@ def input(events, quit_pos):
                         pygame.mixer.fadeout(1000)
                         sequence = ''
             
-            # Clear the background 10% of the time
-            if random.randint(0, 10) == 1:
+            # Clear the background 25% of the time
+            if random.randint(0, 25) == 1:
                 screen.blit(background, (0, 0))
                 pygame.display.flip()
             
@@ -170,8 +170,17 @@ def print_letter(key):
     h = random.randint(0 + center[1], sheight - center[1])
     textpos.centerx = w
     textpos.centery = h
-    screen.blit(text, textpos) 
+    screen.blit(text, textpos)
 
+# for later -- will be welcome screen with options.
+
+def welcome_screen(welcome):
+    welcome = pygame.display.get_surface()
+    rectHeight = 20
+    pygame.draw.rect(welcome, (153, 255, 51), (1, 1, rectHeight, rectHeight))
+    pygame.display.set_caption('Welcome to Hanksmash')
+
+    
 # Main application
 #
 parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
@@ -181,7 +190,7 @@ args = parser.parse_args()
 
 if not pygame.font: print('Warning, fonts disabled')
 if not pygame.mixer: print('Warning, sound disabled')
- 
+
 pygame.init()
 
 # figure out the install base to use with image and sound loading
@@ -195,7 +204,8 @@ displayinfo = pygame.display.Info()
 swidth = displayinfo.current_w
 sheight = displayinfo.current_h
 
-pygame.display.set_caption('Hanksmash') 
+pygame.display.set_caption('Hanksmash')
+pygame.display.set_icon(pygame.image.load('data/hanksmash32.png'))
 screen = pygame.display.get_surface() 
 
 background = pygame.Surface(screen.get_size())
@@ -211,15 +221,15 @@ sound_muted = False
 def glob_data(pattern):
     return glob.glob(os.path.join(progInstallBase, 'data', pattern))
 
-sounds = load_sounds(glob_data('sounds/*.wav'))
+sounds = load_sounds(glob_data('sounds/*.ogg'))
 
 colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0), 
           (255,   0, 128), (  0,   0, 128), (  0, 255,   0), 
           (255, 128,   0), (255,   0, 255), (  0, 255, 255)
 )
 
-images = [load_image(glob_data('pics/clover.gif')[0], -1)]
-images.extend([load_image(name) for name in glob_data('pics/*.gif')])
+images = [load_image(glob_data('pics/clover.png')[0], -1)]
+images.extend([load_image(name) for name in glob_data('pics/*.png')])
 
 quit_pos = 0
 

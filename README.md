@@ -4,6 +4,8 @@
 " target="_blank"><img src="http://img.youtube.com/vi/HJyRnrbuTlQ/0.jpg" 
 alt="Hanksmash In Action" width="240" height="180" border="10" /></a>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HJyRnrbuTlQ" frameborder="0" allowfullscreen></iframe>
+
 # About
 
 HankSmash is free software released under the Gnu Public License 3. The 

@@ -19,6 +19,9 @@ from pygame.locals import *
 import oldstring
 import argparse
 import fnmatch
+import time
+import datetime
+
 
 
 # draw filled circle at mouse position
@@ -84,6 +87,16 @@ def load_sounds(lst):
     return result
 
 
+# Creates input logger
+
+# def write_log(log):
+#    date = [load_log(datetime.datetime.now())]
+#    currentDate = date 
+#    logFile = log([write_log(currentDate) for currentDate in write_log('log.txt')])
+#    with open(logFile, 'a') as log:
+#        return log
+
+
 # Processes events
 def input(events, quit_pos):
     global sequence, mouse_down, sound_muted
@@ -140,9 +153,14 @@ def input(events, quit_pos):
         elif event.type == MOUSEBUTTONUP:
             mouse_down = False
         
+#            while True:
+#                with open(write_log, 'a') as log:
+#                    log.write('\n' + timeOfTransaction + ':' + '\n')
+#                if event.type == QUIT: 
+#                    break
+                
     return quit_pos
-
-
+   
 # Prints an image at a random location
 def print_image():
     #global swidth, sheigh

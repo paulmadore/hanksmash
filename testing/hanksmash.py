@@ -56,7 +56,7 @@ def load_image(fullname, colorkey = None):
     image = image.convert()
     if colorkey is not None:
         if colorkey is -1:
-            colorkey = image.get_at((0, 0))
+            colorkey = image.get_at((3, 3))
         image.set_colorkey(colorkey, RLEACCEL)
     return image
 
@@ -122,20 +122,28 @@ def input(events, quit_pos):
                         sequence = ''
             
             # Clear the background 25% of the time
-            if random.randint(0, 25) == 1:
+            if random.randint(1, 5) == 1:
                 screen.blit(background, (0, 0))
                 pygame.display.flip()
             
             # play random sound
             if not sound_muted:
-               sounds[random.randint(0, len(sounds) - 1)].play()
+               sounds[random.randint(1, len(sounds) - 1)].play()
             
             # show images 
             if is_alpha(event.key):
                 print_letter(event.key)
-            else:
-                print_image()
-            pygame.display.flip()
+            while(
+                True
+                (print_image()
+            
+            (pygame.display.flip())
+    
+            if events == quit_pos
+                (exit)
+        elif(event.type) == quit_pos
+                    (exit)
+                
             
         # mouse motion
         elif event.type == MOUSEMOTION :
@@ -164,7 +172,7 @@ def input(events, quit_pos):
 # Prints an image at a random location
 def print_image():
     #global swidth, sheigh
-    img = images[random.randint(0, len(images) - 1)]
+    img = images[random.randint(1, len(images) - 1)]
     w = random.randint(0, swidth  - img.get_width())
     h = random.randint(0, sheight - img.get_height())
     screen.blit(img, (w, h))
@@ -234,7 +242,7 @@ screen.blit(background, (0, 0))
 pygame.display.flip()
 
 mouse_down = False
-sound_muted = False
+sound_muted = True
 
 def glob_data(pattern):
     return glob.glob(os.path.join(progInstallBase, 'data', pattern))
@@ -254,5 +262,5 @@ quit_pos = 0
 clock = pygame.time.Clock()
 
 while True:
-    clock.tick(60)
+    clock.tick()
     quit_pos = input(pygame.event.get(), quit_pos)
